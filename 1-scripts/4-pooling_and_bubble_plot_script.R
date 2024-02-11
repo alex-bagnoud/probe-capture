@@ -73,7 +73,7 @@ dev.off()
 blast.pc <- read.table("../2-probe_capture/9b-blast_report_otus_pc_min2_tab.txt", sep = "\t")
 colnames(blast.pc) <- c("qaccver", "saccver", "pident", "length", "mismatch", "gapopen", "qstart", "qend", "sstart", "send", "slen", "evalue", "bitscore")
 
-tax.db <- read.table("../../../UniVienna/ricardo_amoA_classification/Supplementary_Data_1_Databases_Trees/e_AamoA.db_nr_aln_taxonomy_qiime.txt", sep = "\t")
+tax.db <- read.table("0-databases/e_AamoA.db_nr_aln_taxonomy_qiime.txt", sep = "\t")
 colnames(tax.db) <- c("accession", "tax.hit")
 blast.pc2 <- merge(blast.pc, tax.db, by.x = "saccver", by.y = "accession")
 
