@@ -4,21 +4,16 @@
 # Written by alexandre.bagnoud@gmail.com
 # version3 09-07-2019
 
-cd ~/OneDrive/Work/Collaboration/henri_probe_capture/3-metagenome
-
-# Raw sequences files given by Henir (in '0-raw_files/')
-
-
 
 ### Databases
 
 # Alves et al., 2018, Nature Communications, Unifying the global phylogeny and environmental distribution of ammonia-oxidising archaea based on amoA genes
 
 # Set path to database files
-db_seq="/Users/Alex/OneDrive/Work/UniVienna/ricardo_amoA_classification/Supplementary_Data_1_Databases_Trees/d_AamoA.db_nr_aln.fasta"
-chimera_db="/Users/Alex/OneDrive/Work/UniVienna/ricardo_amoA_classification/Supplementary_Data_1_Databases_Trees/j_AamoA_chimera.ref.db_aln.trim.fasta"
-qiime_tax="/Users/Alex/OneDrive/Work/UniVienna/ricardo_amoA_classification/Supplementary_Data_1_Databases_Trees/e_AamoA.db_nr_aln_taxonomy_qiime.txt"
-mothur_tax="/Users/Alex/OneDrive/Work/UniVienna/ricardo_amoA_classification/Supplementary_Data_1_Databases_Trees/f_AamoA.db_nr_aln_taxonomy_mothur.txt"
+db_seq="0-databases/d_AamoA.db_nr_aln.fasta"
+chimera_db="0-databases/j_AamoA_chimera.ref.db_aln.trim.fasta"
+qiime_tax="0-databases/e_AamoA.db_nr_aln_taxonomy_qiime.txt"
+mothur_tax="0-databases/f_AamoA.db_nr_aln_taxonomy_mothur.txt"
 
 
 
