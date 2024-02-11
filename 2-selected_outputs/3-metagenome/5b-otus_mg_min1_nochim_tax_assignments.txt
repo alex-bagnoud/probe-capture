@@ -1,0 +1,2 @@
+OTU2;size=2;	NS;NS-Delta;NS-Delta-2;NS-Delta-2.1;NS-Delta-2.1_OTU2	1.00	3
+OTU1;size=1;	NS;NS-Gamma;NS-Gamma-2;NS-Gamma-2.2;NS-Gamma-2.2.2;NS-Gamma-2.2.2_OTU6	1.00	3
