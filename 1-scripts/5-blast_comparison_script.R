@@ -1,5 +1,3 @@
-setwd("~/OneDrive/Work/Collaboration/henri_probe_capture/5-blast_comparison/")
-
 ```{bash}
 
 # Prepare QC-filtered amplicons reads for the BLAST analysis
