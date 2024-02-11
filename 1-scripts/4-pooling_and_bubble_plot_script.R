@@ -1,9 +1,6 @@
 
 # version 10.02.2024
 
-
-setwd('E://sauvegarde_disque_dur/Work/Collaboration/henri_probe_capture/4-pooling/')
-
 ##### 1) Import probe capture data
 
 # tax file
