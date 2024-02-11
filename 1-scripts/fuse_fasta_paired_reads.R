@@ -4,7 +4,7 @@
 
 # This script fuses fasta sequences from two paired fasta files, for all paired fasta file present in one directory
 # Forward files should be named 'sample_R1.fasta' and reverse files 'sample_R2rc.fasta' (rc stands for reverse-complement).
-# The script fuses reads based on a similar sequences header, but all character after the first space are ignored.
+# The script fuses reads based on a similar sequences header, but all character after the first space are ignored.    
 # The script also replaces the header by the sample name, the one contained in the files names.
 
 library("optparse")
