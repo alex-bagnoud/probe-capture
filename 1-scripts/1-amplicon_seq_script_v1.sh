@@ -38,7 +38,6 @@ chimera_db="0-databases/j_AamoA_chimera.ref.db_aln.trim.fasta"
 ### Other scripts
 
 # fuse_fasta_paired_reads.R (executable from bash)
-# otu_plots_and_tables.R (to be run in R)
 
 
 
