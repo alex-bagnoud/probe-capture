@@ -1,7 +1,6 @@
 ###### AMPVIS2
 
 library("ampvis2")
-setwd("~/OneDrive/Work/Collaboration/henri_probe_capture/6-ampvis/")
 
 #### 1) Merge OTU tables
 
