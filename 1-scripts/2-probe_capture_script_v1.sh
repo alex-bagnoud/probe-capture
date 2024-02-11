@@ -4,7 +4,6 @@
 # Written by alexandre.bagnoud@gmail.com
 # version3 09-07-2019
 
-# Raw sequences files (in '0-raw_files/')
 
 # TamoA_47_R1_hmm.fasta = H2-16 (probe capture)
 # TamoA_48_R1_hmm.fasta = H2-17 (probe capture)
