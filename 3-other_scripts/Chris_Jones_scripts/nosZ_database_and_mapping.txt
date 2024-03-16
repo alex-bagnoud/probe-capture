@@ -1,0 +1,48 @@
+#########################################################################
+##################### Hmmsearch and phylogeny #####################
+#########################################################################
+#Run hmmsearch
+nohup sh ./parallel_hmmer_genome.sh -f nosZ_seed.fasta -d archaea_assemblies_genbank_2019 -o nrfA_archaea_assemblies_2019
+nohup sh ./parallel_hmmer_genome.sh -f nosZ_seed.fasta.fasta -d bacteria_assemblies_genbank_2019 -o bacteria_archaea_assemblies_2019
+#Dereplucate at 100% identity (aa) 
+python3 hmmalign_nucmap_derep.py -f nrfA_hmmsearch.fna -s NrfA_alignment_for_HMM_2019.fasta -o nrfA_hmmsearch_nucmap.fna -d 1 -e 0.000001
+#Remove "/" after ">" in nucmap file
+#NOT DONE: replace "." in sequence name by "_" (otherwise arb get confused for readseq)
+
+
+#Inspect alignment in ARB
+
+	* Export amino acid alignment and run FastTree for starting phylogeny, to check homologs
+	* Remove fragments (<80% length and/or unrelated COX2 domains, indicated by short length plus C[H/S]ALH[Q/M]EM copper binding motiff near the C-terminus)
+	* Remove suspect sequences (possible chimeric errors, etc) based on branch lengths of test trees (FastTree)
+	* For phylogeny, columns with 
+	
+#Final number of sequences: 1644 
+#Final IQTREE 
+iqtree2 -s nosZ_referenceAAali_1644_5PCT.fasta -m LG+R10 -B 1000 -bnni -T AUTO
+
+#Final tree rooted in ARB at outgroup and exported as 'nosZ_referenceAAali_1644_5PCT_ROOTCON.fasta.treefile'
+
+#########################################################################
+##################### phylogenetic placement #####################
+#########################################################################
+
+#The probe and shotgun sequences to be placed were clustered by H Siljanen using CD-HIT. 
+#These are in files 'nosZ_agricultural_shotgun_hmm.fasta' and 'nosZ_agricultural_probecapture_hmm.fasta'
+#The genomesearch_hmmalign_nucmap_drep.py' script give mlutopel outputs - using the 'prot_aligned.fasta' for the placements
+#it also screens for non-homologous hits using hmmscan to remove possible contaminating sequences, but these have already been screened by H Siljanen, so set e = 100
+
+hmmalign_nucmap_derep -s ./2019_db/nosZ_seedAA_1644_WOUT.fasta -o ./nosZ_prob/nosZ_proball_ali_1644.fasta -f ./nosZ_probe/nosZ_agricultural_probecapture_hmm.fasta -e 100
+hmmalign_nucmap_derep -s ./2019_db/nosZ_seedAA_1644_WOUT.fasta -o ./nosZ_shotgun/nosZ_shotall_ali_1644.fasta -f ./nosZ_probe/nosZ_agricultural_probecapture_hmm.fasta -e 100
+
+# Phylogenetic placement with EPA-ng (v. 0.3.8)
+
+#Separate queries and refs from aln
+epa-ng --split --ref-msa ./2019_db/nosZ_seedAA_1644_WOUT.fasta --tree ./2019_db/nosZ_referenceAAali_1644_5PCT_ROOTCON.fasta.treefile --query ./nosZ_prob/prot_aligned.fasta -m LG+R10 --redo
+epa-ng --split --ref-msa ./2019_db/nosZ_seedAA_1644_WOUT.fasta --tree ./2019_db/nosZ_referenceAAali_1644_5PCT_ROOTCON.fasta.treefile --query ./nosZ_shotgun/prot_aligned.fasta -m LG+R10 --redo
+
+#Run epa-ng to get jplace files for input into R script.
+epa-ng --ref-msa ./nosZ_probe/reference.fasta --tree ./2019_db/nosZ_referenceAAali_1644_5PCT_ROOTCON.fasta.treefile --query ./nosZ_probe/query.fasta -m LG+R10 --redo
+epa-ng --ref-msa ./nosZ_shotgun/reference.fasta --tree ./2019_db/nosZ_referenceAAali_1644_5PCT_ROOTCON.fasta.treefile --query ./nosZ_shotgun/query.fasta -m LG+R10 --redo
+
+#Using 'epa_result.jplace' as input files.
