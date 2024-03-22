@@ -162,3 +162,131 @@ shotgun:nxrB-captured:nxrB    5.114273e+00   3.12157577   7.10697026 0.0000000  
 shotgun:pmoA-captured:pmoA    1.962283e-01  -1.79646891   2.18892558 1.0000000
 
 
+###########################################################################################
+# Fig. 4. Statistical test for 
+# Dropbox link to the data:
+https://www.dropbox.com/scl/fi/37lml9f5fx3geknnr2f4h/4b-bubble_plot_table_kruskall_test_input2_transp.csv?rlkey=9chj3f23fgvcsubxplfisna84&dl=0
+
+#Analysis of Wilcox comparisons at done in R 3.5.3. 
+
+setwd("/Users/siljanen 1/Library/Mobile Documents/com~apple~CloudDocs/Documents/TamoA_Hungary_shotgun_dada_usearch/usearch_captured_shotgun_TamoA")
+
+bubble_krus_c_t <-read.csv("4b-bubble_plot_table_kruskall_test_input2_transp.csv",header=T, sep=";")
+
+attach(bubble_krus_c_t)
+pairwise.wilcox.test(NS, group, , alternative = "less", p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Alpha.3, group, , alternative = "less", p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Alpha.3.1, group, , alternative = "less", p.adjust.method = "BH")
+#Example outcome
+#Pairwise comparisons using Wilcoxon rank sum test 
+
+#data:  NS.Alpha.3.1 and group 
+
+#  1     2    
+#  2 0.048 -    
+#  3 0.048 1.000
+
+#P value adjustment method: BH 
+
+pairwise.wilcox.test(NS.Alpha.3.1.1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Alpha.3.1.1.1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Alpha.3.1.1.1_OTU1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Alpha.3.1.1.1_OTU2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Alpha.3.1.1.1_OTU3, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Alpha.3.1.1.2_OTU3, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Alpha.3.1.1.3, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Alpha.3.1.1.Incertae_sedis_OTU1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Alpha.3.1.1_OTU4, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Alpha.3.1.2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Alpha.3.1.2_OTU1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Alpha.3.1.2_OTU2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Alpha.3.2.1.1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Alpha.3.2.1.1.1.2_OTU2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Alpha.3.2.2_OTU1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Alpha.3.2.2_OTU7, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Alpha.3.2.3, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Alpha.3.2.3.1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Alpha.3.2.3.1.3_OTU1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Alpha.3.2.3.1.4, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Alpha.3.2.3.1.4_OTU3, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Alpha.3.2.3.1.7, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Alpha.3.3.1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Alpha.3.3.1_OTU1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Alpha.3.3.1_OTU3, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Beta.1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Beta.1_OTU10, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Beta.1_OTU4, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Beta.1_OTU6, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Beta.1_OTU9, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Beta.2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Beta.2.1_OTU2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Beta.2.2_OTU2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Beta.2_OTU1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Delta.1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Delta.1.1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Delta.1.1.2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Delta.1.1.2.1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Delta.1.1.2.1_OTU12, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Delta.1.1.2.1_OTU13, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Delta.1.1.2.2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Delta.1.1.2.2_OTU2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Delta.1.1.2_OTU2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Delta.1.1.3, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Delta.1.1.3_OTU1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Delta.1.1.3_OTU2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Delta.1.Incertae_sedis.3_OTU2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Delta.1_OTU9, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Delta.2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Delta.2.1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Delta.2.1_OTU1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Delta.2.1_OTU2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Delta.2.2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Delta.2.2.1_OTU2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Delta.2.2.1_OTU4, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Delta.2.2.2_OTU3, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Epsilon.2.1_OTU5, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Epsilon.2.2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Epsilon.2.2_OTU5, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.1.1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.1.1_OTU2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.1.2_OTU1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.1.2_OTU3, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.1.Incertae_sedis_OTU2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.2.1.1_OTU2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.2.1.1_OTU6, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.2.1.2.2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.2.1.2.2_OTU3, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.2.1.2.2_OTU4, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.2.1_OTU1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.2.2.1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.2.2.1.1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.2.2.1_OTU3, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.2.2.1_OTU4, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.2.2.1_OTU5, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.2.2.2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.2.2.2_OTU6, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.2.2.3_OTU1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.2.2.3_OTU3, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.2.2.3_OTU4, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.2.3.2.3_OTU3, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.2.3.2_OTU2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.2.3.2_OTU5, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.2.3.Incertae_sedis_OTU2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.2.3_OTU1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Gamma.2.3_OTU2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Zeta, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Zeta.1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Zeta.1.1_OTU1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Zeta.1.1_OTU3, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Zeta.1.2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Zeta.1.2_OTU4, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Zeta.1.2_OTU8, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Zeta.2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Zeta_OTU2, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS.Zeta_OTU3, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(NS_OTU1, group, , alternative = "less",  p.adjust.method = "BH")
+pairwise.wilcox.test(unknown, group, , alternative = "less",  p.adjust.method = "BH")
+
+
+
