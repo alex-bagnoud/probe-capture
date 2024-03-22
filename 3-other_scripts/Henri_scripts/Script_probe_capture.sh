@@ -302,13 +302,10 @@ cd-hit-est -i all_genes_compiled_ncbi_nt_envnt_fungene.fasta -o  all_genes_compi
 
 #The TF/FP calculations:
 
-#Figure 1 plotting.
 
 ###############################################################################
-# Statitical test for Origical and Targeted reads (Mock community comparison).
-# Statitical test for Shotgun and Targeted reads (Agricultual and wetland soil).
-# Plots for the figures.
-# In separate Script files: 
+# Statitical test for Origical and Targeted reads (Mock community comparison) , plotting the Figure (Script_Fig_S2.sh / Script_ProbeCapture_Fig_S3.sh)
+# Statitical test for Shotgun and Targeted reads (Agricultual and wetland soil), plotting the Figure  (Script_Fig_2.sh / Script_Fig_3.sh).
 
 
 
