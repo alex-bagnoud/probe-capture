@@ -163,9 +163,9 @@ shotgun:pmoA-captured:pmoA    1.962283e-01  -1.79646891   2.18892558 1.0000000
 
 
 ###########################################################################################
-# Fig. 4. Statistical test for 
-# Dropbox link to the data:
-https://www.dropbox.com/scl/fi/37lml9f5fx3geknnr2f4h/4b-bubble_plot_table_kruskall_test_input2_transp.csv?rlkey=9chj3f23fgvcsubxplfisna84&dl=0
+# Fig. 4. Statistical test for archaeal-amoA taxonomic bins
+# data available above, under Henri_scripts
+# 4b-bubble_plot_table_kruskall_test_input2_transp.csv
 
 #Analysis of Wilcox comparisons at done in R 3.5.3. 
 
