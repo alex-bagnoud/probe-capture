@@ -16,7 +16,7 @@
 # 3°. Search of each genes. The text based search from NCBI produces also full genomic fragments, in step 1°. 
 #            The produced House formed hmmer profile were used to search each genes from these text based searches in . 
 # 4°. The fungene database for each genes were searched. 
-# 5°. The full nt and env-nt database was downladed on the server, from NCBI. These database searched with House made hmmer-profiles to build the database 
+# 5°. The full nt and env-nt database was downladed on the server, from NCBI. These database nt/env-nt were searched with in House made hmmer-profiles to extend the gene databases:
 #      5.1°.from nt 
 #      5.2°. and env-nt.  
 # 6°. Compiling files: These files from NCBI text search, fungene, private databse and hmmer searches from nt and env-nt databse were compiled together 
@@ -28,60 +28,109 @@
 #################
 # 1°. Search of text based from NCBI-nucleotide database, March 2017.
 # Text based seacrh terms for each gene, NCBI website https://www.ncbi.nlm.nih.gov/nuccore : 
+# Text searches done in different parts, compiled together later (see below). 
 
 #mmoX 
+#mmoX_ncbi_part1.txt
 "soluble methane monooxygenase" 
+#mmoX_ncbi_part2.txt
 mmoX[gene name] NOT "soluble methane monooxygenase"
+
 #pmoA
+#pmoA_ncbi_part1.txt
 "particulate methane monooxygenase subunit A"
+#pmoA_ncbi_part2.txt
 pmoA[gene name] NOT "particulate methane monooxygenase subunit A"
+
 #amoA 
+#amoA_ncbi_part1.txt
 "ammonia monooxygenase subunit A"
+#amoA_ncbi_part2.txt
 amoA[gene name] NOT "ammonia monooxygenase subunit A"
-# narG
+
+#narG
+#narG_ncbi_part1.txt
 “nitrate reductase alpha chain”
+#narG_ncbi_part2.txt
 “nitrate reductase alpha subunit”
+#narG_ncbi_part3.txt
 narG[gene name]
+#narG_ncbi_part4.txt
 “nitrate reductase alpha chain” NOT “nitrate reductase alpha subunit” NOT narG[gene name]
+#narG_ncbi_part5.txt
 “nitrate reductase catalytic subunit” NOT “nitrate reductase alpha chain” NOT narG[gene name]
+#narG_ncbi_part6.txt
 “nitrate reductase alpha subunit” NOT narG[gene name] 
+
 #napA
+#napA_ncbi_part1.txt
 "periplasmic nitrate reductase"
+#napA_ncbi_part2.txt
 napA[gene name]
+
 #nifH
+#nifH_ncbi_part1.txt
 “nitrogenase reductase”
+#nifH_ncbi_part2.txt
 nifH[gene name]
+#nifH_ncbi_part3.txt
 “nitrogenase reductase” NOT nifH[gene name]
+
 #nirK
+#nirK_ncbi_part1.txt
 “copper-dependent nitrite reductase”
+#nirK_ncbi_part2.txt
 nirK[gene name]
+#nirK_ncbi_part3.txt
 “copper-dependent nitrite reductase” NOT nirK[gene name]
+
 #nirS
+#nirS_ncbi_part1.txt
 “cytochrome cd1 nitrite reductase”
+#nirS_ncbi_part2.txt
 nirS[gene name]
+#nirS_ncbi_part3.txt
 “cytochrome cd1 nitrite reductase” NOT nirS[gene name]
+
 #nosZ
+#nosZ_ncbi_part1.txt
 nosZ[gene name]
+#nosZ_ncbi_part2.txt
 “nitrous oxide reductase” NOT nosZ[gene name]
+#nosZ_ncbi_part3.txt
 putative nitrous oxide reductase NOT nosZ[gene name] 
+
 #nrfA
+#nrfA_ncbi_part1.txt
 nrfA[gene name]
+#nrfA_ncbi_part2.txt
 “cytochrome c nitrite reductase” NOT nrfA[gene name]
+
 #nxrB
+#nxrB_ncbi_part1.txt
 nxrB[gene name]
+#nxrB_ncbi_part2.txt
 nxrB[gene name] NOT "nitrite oxidoreductase beta subunit”
+
 #hzoA
+#hzoA_ncbi_part1.txt
 hydrazine-oxidizing enzyme NOT hzo[gene name]
+#hzoA_ncbi_part2.txt
 hydrazine oxidoreductase NOT hzo[gene name]
+#hzoA_ncbi_part3.txt
 hzo[gene name]
+
 #mcrA
+#mcr_ncbi_part1.txt
 mcrA[gene name]
+#mcrA_ncbi_search_part2.txt
 "methyl coenzyme M reductase"
+#mcrA_ncbi_search_part3.txt
 "methyl coenzyme M reductase" NOT mcrA[gene name]
 
 # Sequences files were downloaded to the desktop and compiled to files, text searched/hand-collected files:
 # These searches produced several sequence files. As example mcrA produced three different files, those were merged together with cat-command: 
-cat mcrA_ncbi_search_part1.txt  mcrA_ncbi_search_part2.txt  mcrA_ncbi_search_part2.txt > mcrA_ncbi_new.fasta
+cat mcrA_ncbi_search_part1.txt  mcrA_ncbi_search_part2.txt  mcrA_ncbi_search_part3.txt > mcrA_ncbi_new.fasta
 
 nifH_ncbi_new.fasta
 TamoA_ncbi_new.fasta
@@ -98,47 +147,49 @@ pmoA_ncbi_new.fasta
 mmoX_ncbi_new.fasta
 mcrA_ncbi_new.fasta
 
-# 1.1.° During these searches, the results of each taxon was collected for separated search file. 
+# 1.1.° During these text based searches, the results of each taxon was collected for each genes. 
+# 1.2.°  These collected sequences were used to search similar cultured organisms in BlastN (https://blast.ncbi.nlm.nih.gov/) search (exclution of uncultured sequences) to form the reference gene database for hmm-profiles. 
+#
 
-# 1.2.°  These sequences were used to search similar cultured organisms in BlastN search (exclution of uncultured sequences). 
-# https://blast.ncbi.nlm.nih.gov/ 
+# 2°.This search produced the simple gene databases for House made hmmer profiles. The sequences were aligned with AliView programs with MUSCLE algoritm. 
 
-# 2°.This search produced the simple databases for House made hmmer profiles. The sequences were aligned with AliView programs with MUSCLE algoritm. 
-
-nifH_refdb_NEW.fst
-TamoA_refdb_NEW.fst
-amoA_bacterial_refDB_NEW.fst 
+nifH_refdb_NEW.fasta
+TamoA_refdb_NEW.fasta
+amoA_bacterial_refDB_NEW.fasta 
 nxrB_refdb_NEW.fasta
 hzoA_refdb_alignment.txt
-nrfA_refdb_NEW.fa
+nrfA_refdb_NEW.fasta
 napA_refdb_NEW.fasta
 narG_refdb_NEW.fasta
-nirK_refdb_NEW.fst
-nirS_refdb_NEW.fst
-nosZ_refdb_NEW.fst
+nirK_refdb_NEW.fasta
+nirS_refdb_NEW.fasta
+nosZ_refdb_NEW.fasta
 pmoA_refdb_NEW.fasta
 
+
+# These reference gene databases, are shown in 2-selected_outputs in folder Refdb_fastas_for_hmmer-profiles.zip
+
+# Production of House made hmmer profiles, in Taito-cluster.
 # In Taito-cluster:
 ssh taito-shell.csc.fi -l siljanen
 cd $WRKDIR/
 
 # Download the biokit which have the required tool:
 # hmmer
-# cd-hit
 
 module load biokit
 
-hmmbuild nifH.hmm nifH_refdb_NEW.fst
-hmmbuild TamoA.hmm TamoA_refdb_NEW.fst
-hmmbuild amoA.hmm amoA_bacterial_refDB_NEW.fst
+hmmbuild nifH.hmm nifH_refdb_NEW.fasta
+hmmbuild TamoA.hmm TamoA_refdb_NEW.fasta
+hmmbuild amoA.hmm amoA_bacterial_refDB_NEW.fasta
 hmmbuild nxrB.hmm nxrB_refdb_NEW.fasta
 hmmbuild hzoA.hmm hzoA_refdb_alignment.txt
-hmmbuild nrfA.hmm nrfA_refdb_NEW.fa
+hmmbuild nrfA.hmm nrfA_refdb_NEW.fasta
 hmmbuild napA.hmm napA_refdb_NEW.fasta
 hmmbuild narG.hmm narG_refdb_NEW.fasta
-hmmbuild nirK.hmm nirK_refdb_NEW.fst
-hmmbuild nirS.hmm nirS_refdb_NEW.fst
-hmmbuild nosZ.hmm nosZ_refdb_NEW.fst
+hmmbuild nirK.hmm nirK_refdb_NEW.fasta
+hmmbuild nirS.hmm nirS_refdb_NEW.fasta
+hmmbuild nosZ.hmm nosZ_refdb_NEW.fasta
 hmmbuild pmoA.hmm pmoA_refdb_NEW.fasta
 
 # for norB and mmoX gene, hmmer profile from fungene was used:
@@ -157,13 +208,14 @@ mv *.hmm $WRKDIR/DONOTREMOVE/compiled_seed
 # folder- $WRKDIR/DONOTREMOVE/compiled_seed
 # and search with hmmer the each genes from text search database.
 
-#on Desktop
+#Transfer of script_for_hmmer_NEW.sh script from Desktop to Taito-cluster
 scp script_for_hmmer_NEW.sh siljanen@taito.csc.fi:/wrk/siljanen
 
+#login Taito
 ssh taito-shell.csc.fi -l siljanen
 cd $WRKDIR/
 
-#in Taito
+#Start sbatch work with script_for-hmmer_NEW.sh
 sbatch script_for-hmmer_NEW.sh
 #13/03/2017 klo 13:09
 #Submitted batch job 12800818
@@ -202,6 +254,7 @@ nhmmer --noali --cpu 4 pmoA.hmm pmoA_ncbi_new.fasta > pmoA_hmmer_list3.txt
 nhmmer --noali --cpu 4 mmoX.hmm mmoX_ncbi_new.fasta > mmoX_hmmer_list3.txt
 nhmmer --noali --cpu 4 mcrA.hmm mcrA_ncbi_new.fasta > mcrA_hmmer_list3.txt
 
+# end of: script_for-hmmer_NEW.sh
 
 #################################################################
 # 4°. The fungene database for each genes were searched.
@@ -231,21 +284,20 @@ cat fungene_8.5_napA_10000_unaligned_nucleotide_seqs-2.fa fungene_8.5_napA_10000
 scp napA_all_fungene.txt siljanen@taito.csc.fi:/wrk/siljanen/DONOTREMOVE/compiled_seed
 # same for other genes too. 
 
-# 5°. The full nt and env-nt database was downladed on the server, from NCBI. These database searched with House made hmmer-profiles to build the database 
-#      5.1°.from nt 
-#      5.2°. and env-nt.  
+# 5°. The full nt and env-nt database was downladed on the server, from NCBI. These database nt/env-nt were searched with in House made hmmer-profiles to extend the gene databases: 
+#      5.1°.from nt with a    script_for_hmmer_against_nt.sh
+#      5.2°. and env-nt with a   script_for_hmmer_against_env_nt.sh
 # Search done on July 2017:
 
 #now new seed files and hmm-profiles are in  $WRKDIR/DONOTREMOVE/compiled_seed
 
 ssh taito-shell.csc.fi -l siljanen
-
 cd $WRKDIR/DONOTREMOVE/compiled_seed
 
-# get the nt and nr database in Taito
+###############################################
+# get the nt database in Taito
 
 wget  ftp://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/nt.gz
-gunzip nt.gz
 
 
 ###############################################
@@ -265,7 +317,6 @@ scp script_for_hmmer_against_nt.sh siljanen@taito.csc.fi:/wrk/siljanen
 #SBATCH --mail-user=henri.siljanen@uef.fi
 #SBATCH --mem-per-cpu=8000
 #
-
 
 cd $WRKDIR/DONOTREMOVE/compiled_seed
 
@@ -289,20 +340,15 @@ nhmmer --noali --cpu 4 nosZ.hmm nt > nosZ_hmmer_results_from_nt.txt
 nhmmer --noali --cpu 4 nxrB.hmm nt > nxrB_hmmer_results_from_nt.txt
 nhmmer --noali --cpu 4 TamoA.hmm nt > TamoA_hmmer_results_from_nt.txt
 
+# end of: script_for_hmmer_against_nt.sh
 
 ##############################################
 
 # in CSC Taito server
-# in Taito  --- submit blastn run from nt database:
-
-
-cd $WRKDIR
-script_for_hmmer_against_nt.sh
-
+# in Taito  --- submit sbatch run agains nt database:
 
 sbatch script_for_hmmer_against_nt.sh
 Submitted batch job 15339474 27/07-17 at 00:37am
-
 
 
 ###############################################
@@ -311,9 +357,7 @@ Submitted batch job 15339474 27/07-17 at 00:37am
 # in Taito: folder $WRKDIR/DONOTREMOVE/compiled_seed
 
 wget  ftp://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/env_nt.gz
-
 gunzip env_nt.gz
-
 
 ###############
 
@@ -353,7 +397,7 @@ nhmmer --noali --cpu 4 nirK.hmm env_nt > nirK_hmmer_results_from_env_nt.txt
 nhmmer --noali --cpu 4 nosZ.hmm env_nt > nosZ_hmmer_results_from_env_nt.txt
 nhmmer --noali --cpu 4 nxrB.hmm env_nt > nxrB_hmmer_results_from_env_nt.txt
 nhmmer --noali --cpu 4 TamoA.hmm env_nt > TamoA_hmmer_results_from_env_nt.txt
-
+#end of: script_for_hmmer_against_env_nt.sh
 
 # in CSC Taito server
 # in Taito  --- submit blastn run from env_nt database:
@@ -364,10 +408,11 @@ sbatch script_for_hmmer_against_env_nt.sh
 #Submitted batch job 15339472 27/07-17 at 00:37am
 
 
-### COMPILING all files together:
-# 6°. Compiling files: These files from NCBI text search, fungene, private databse and hmmer searches from nt and env-nt databse were compiled together 
+### COMPILING all databases of each genes files together:
+# 6°. Compiling files: These files from NCBI text search, fungene, private databse and hmmer searches from nt and env-nt database were compiled together 
 #         and submitted to MetCap pipeline to produce probes with Roche SeqCap method. 
 
+# Private and published 
 # nifH database: ARB database from Zehr’s lab: http://wwwzehr.pmc.ucsc.edu/nifH_Database_Public/. 
 # nifH_2014April04-2_export.fasta
 
@@ -413,14 +458,206 @@ cd-hit-est -i all_genes_compiled_ncbi_nt_envnt_fungene.fasta -o  all_genes_compi
 # 7°. Submitting Target gene database to MetCap probe design:
 #  MetCap probe design:
 # all_genes_compiled_ncbi_nt_envnt_fungene_unique.fasta , were submitted to 
-# MetCap website (Not available anymore, discuss with Lokesh Manoharan email:lokeshwaran.manoharan@med.lu.se or Dag Ahren email:dag.ahren@med.lu.se in Medical University of Lund ), 
-# with 80% clustering and 6 probes per cluster. 
+# MetCap website (Not available anymore, discuss with Lokesh Manoharan email:lokeshwaran.manoharan@med.lu.se or Dag Ahren email:dag.ahren@med.lu.se in Medical University of Lund): 
+ 
 
-# The database were looked over that no 16S rRNA genes were included into the database (Lokesh? How this was done?)
+# The Target gene database were looked over that no 16S rRNA genes were included into the database, before the probe design was produced, with MetCap. 
 
-# 8°. Submitting probes to SeqCap probe order:
+# The script for 16S screening for Target gene database is published previously in GitHub by Lokesh Manoharan (https://github.com/lokeshbio/Vienna_MetCap_probes_2409/blob/main/code/). 
+# See below scripts of blast_rrna_filter.bash , filter_blast.py , filter_sequences.pl
+# The main script that was run is the blast_rrna_filter.bash that uses the .pl and the .py script to filter out the 16S genes from the Target gene database.
+# https://github.com/lokeshbio/Vienna_MetCap_probes_2409/blob/main/code/code_for_journal/blast_rrna_filter.bash
+# content of blast_rrna_filter.bash below:
+
+#!/bin/bash
+# This script performs a BLAST search against the SILVA rRNA database
+blastn -db ./BLASTDB/silva_rrna_all \
+    -query ./filtered_for_rRNA_screen.fasta \
+    -evalue 1e-25 -outfmt 7 -num_threads 16 -perc_identity 50 \
+    -out filtered_vs_silva_rrna.blastn.tab
+
+# This script filters the BLAST results based on match with 50% identity and length of 50 bases
+python ./filter_blast.py \
+    -i ../results/filtered_vs_silva_rrna.blastn.tab \
+    -p 50 -l 50 \
+    -o ../results/blast_results_subset.tsv
+
+# This script filters the sequences based on the BLAST results from above
+perl ./filter_sequences.pl \
+    ../results/blast_results_subset.tsv \
+    ../results/filtered_for_rRNA_screen.fasta \
+    ../results/filtered_after_rRNA_screen.fasta
+
+# end of blast_rrna_filter.bash
+
+# filter_blast.py is used in the blast_rrna_filter.bash:
+# https://github.com/lokeshbio/Vienna_MetCap_probes_2409/blob/main/code/code_for_journal/filter_blast.py
+# content of filter_blast.py
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# @Date    : 2024-11-21 15:15:51
+# @Author  : Lokesh Mano (lokeshwaran.manoharan@nbis.se)
+# @Link    : link
+# @Version : 1.0.0
+
+import os
+import re
+import sys
+import copy
+import argparse
+
+usage = """Insert usage here"""
+
+parser = argparse.ArgumentParser(description=usage)
+
+
+parser.add_argument(
+    "-i",
+    "--infile",
+    dest="infile",
+    type=argparse.FileType("r"),
+    help="Input blast tab in blast format 7",
+    required=True,
+)
+
+parser.add_argument(
+    "-o",
+    "--outfile",
+    dest="outfile",
+    type=argparse.FileType("w"),
+    help="filtered blast output",
+    default=sys.stdout,
+)
+
+parser.add_argument(
+    "-p",
+    "--percent-identity",
+    dest="pi",
+    type=float,
+    help="Minimum percent identity",
+    required=True,
+)
+
+parser.add_argument(
+    "-l",
+    "--alignment-length",
+    dest="len",
+    type=int,
+    help="Minimum alignment length",
+    required=True,
+)
+
+args = parser.parse_args()
+
+p0 = re.compile(">")
+p1 = re.compile(" ")
+p2 = re.compile("\,")
+p3 = re.compile("\t")
+p4 = re.compile("\;")
+
+"""
+Insert Block comment here # e.g. 16S
+"""
+
+print(
+    "Query",
+    "Subject",
+    "Percent_Identity",
+    "Alignment_Length",
+    sep="\t",
+    file=args.outfile,
+)
+
+for line in args.infile:
+    line = line.rstrip("\n")
+    if not line.startswith("#"):
+        tmp_list = re.split(p3, line)
+        if float(tmp_list[2]) >= args.pi and int(tmp_list[3]) >= args.len:
+            print("\t".join(tmp_list[:4]), file=args.outfile)
+
+args.outfile.close()
+args.infile.close()
+
+# end of filter_blast.py
+
+# filter_sequences.pl script is used in the blast_rrna_filter.bash:
+# https://github.com/lokeshbio/Vienna_MetCap_probes_2409/blob/main/code/code_for_journal/filter_sequences.pl
+# content of filter_sequences.pl
+
+#!/usr/bin/perl -w
+##### Program description #######
+#
+# Title: grep -f for long files
+#
+# Author(s): Lokeshwaran Manoharan
+#
+#
+# Description: choose lines from the list with headers in the argument file
+#
+# List of subroutines:
+#
+#
+# Overall procedure: take headers from the headers file and extract the corresponding line from
+#                    the blast-tab file.
+#
+# Usage: ./grep_f_long.pl headfile fasta_file out_file
+#
+##################################
+
+my %hash;
+
+
+my $head_file=$ARGV[0];
+open my $HEADFILE, '<', $head_file or die "cannot open $head_file : $!";
+
+my $blast_file=$ARGV[1];
+open my $BLASTFILE, '<', $blast_file or die "cannot open $blast_file : $!";
+
+my $main_file = $ARGV[2];
+open my $OUTFILE, '>', $main_file or die "cannot open $main_file : $!";
+
+my $count = 0;
+while(my $line = <$HEADFILE>){
+        chomp $line;
+        if($count > 0){
+                my @tmp = split (/\t/,$line);
+                $hash{$tmp[0]}=1;
+        }
+        $count += 1;
+}
+
+$count = 0;
+while(my $line = <$BLASTFILE>){
+        chomp $line;
+        if($line =~ /\>/){
+          my @tmp = split (/\s/,$line);
+          $tmp[0] =~ s/\>//;
+          unless(defined $hash{$tmp[0]}){
+                $count = 1;
+                print $OUTFILE "$line\n";
+          }
+        }
+        elsif($count ==1){
+                print $OUTFILE "$line\n";
+                $count = 0;
+        }
+}
+
+close $HEADFILE;
+close $BLASTFILE;
+
+# end of filter_sequences.pl
+
+# After 16S screening the Target gene database is going towards clustering and probe design with MetCap 
+# with 80% clustering and 6 probes per each cluster.
+# The final outcome MetCap was Final_N_probes.list1.fasta 
+
+
+# 8°. Submitting the final Target gene database for probes-design in the Roche's SeqCap probe system hyperdesign:
 # SeqCap probe order:
-# produced probe file: Final_N_probes.list1.fasta submitetd to Roche SeqCap probe production:  
+# MetCap produced probe file: Final_N_probes.list1.fasta were submitted to Roche SeqCap probe production:  
+# NimbleGen SeqCapEZ (Roche Nimble Gen, Inc., Madison, USA) 
 # Hyperdesign website to produce probes with Roche SeqCap system 
 # https://www.hyperdesign.com/#/
 # Probes submitted as Custom probes. 
