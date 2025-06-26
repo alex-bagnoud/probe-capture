@@ -2,10 +2,12 @@
 ##################### Hmmsearch and phylogeny #####################
 #########################################################################
 #Run hmmsearch
-nohup sh ./parallel_hmmer_genome.sh -f nosZ_seed.fasta -d archaea_assemblies_genbank_2019 -o nrfA_archaea_assemblies_2019
-nohup sh ./parallel_hmmer_genome.sh -f nosZ_seed.fasta.fasta -d bacteria_assemblies_genbank_2019 -o bacteria_archaea_assemblies_2019
+nohup sh ./genomesearch_parallel_hmmer_genome.sh -f nosZ_seed.fasta -d archaea_assemblies_genbank_2019 -o archaea_assemblies_2019
+nohup sh ./genomesearch_parallel_hmmer_genome.sh -f nosZ_seed.fasta -d bacteria_assemblies_genbank_2019 -o bacteria_archaea_assemblies_2019
 #Dereplucate at 100% identity (aa) 
-python3 hmmalign_nucmap_derep.py -f nrfA_hmmsearch.fna -s NrfA_alignment_for_HMM_2019.fasta -o nrfA_hmmsearch_nucmap.fna -d 1 -e 0.000001
+python3 hmmalign_nucmap_derep.py -f nosZ_hmmsearch.fna -s nosZ_seed.fasta -o nosZ_hmmsearch_nucmap.fna -d 1 -e 0.000001
+#NOTE: the e-value of 0.00001 was determined for nosZ empirically to include the target gene as well as distant homologues. Other gene may require a different threshold.
+
 #Remove "/" after ">" in nucmap file
 #NOT DONE: replace "." in sequence name by "_" (otherwise arb get confused for readseq)
 
