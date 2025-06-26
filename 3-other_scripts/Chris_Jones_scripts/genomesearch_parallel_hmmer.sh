@@ -40,7 +40,7 @@ hmmbuild tmp.hmm $INFILE
 
 echo "Searching gzipped fna files in $DIR"
 
-find $DIR -name "*.gz" | parallel ./hmmer_genome_as.sh -f {} -m ./tmp.hmm
+find $DIR -name "*.gz" | parallel ./genomesearch_hmmer.sh -f {} -m ./tmp.hmm
 
 for f in ./NUCOUT/*_nucout.fna; do cat "$f" >> ./tmp_nucout.fna; done
 
